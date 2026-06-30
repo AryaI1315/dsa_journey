@@ -1,0 +1,28 @@
+
+approch:
+use nested loop
+
+the conditions:      //that i missed to learn
+i != j
+0 <= i, j < arr.length
+arr[i] == 2 * arr[j]
+
+
+Solution:
+
+class Solution {
+public:
+    bool checkIfExist(vector<int>& arr) {
+
+        for(int i = 0 ; i < arr.size();i++){
+            for(int j = i+1 ; j < arr.size();j++){
+                if(i!=j && arr[i]== 2*arr[j]){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }    
+        
+};
