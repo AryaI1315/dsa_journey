@@ -1,1 +1,45 @@
 
+Algorithm:
+
+1. 
+If nums[mid] == 0
+Swap nums[low] and nums[mid]
+Increment low
+Increment mid
+
+2.
+If nums[mid] == 1
+1 is already in the correct region
+Increment mid
+
+3.If nums[mid] == 2
+Swap nums[mid] and nums[high]
+Decrement high
+Do not increment mid
+
+The reason we don't increment mid here is because the element swapped from high has not been processed yet.
+
+solution :
+
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        int low = 0;
+        int high = nums.size()-1;
+        int mid = 0;
+
+        while(mid <=high){
+            if(nums[mid]==0){
+                swap(nums[mid],nums[low]);
+                low++;
+                mid++;
+            }else if(nums[mid]==1){
+                mid++;
+            }else {
+                swap(nums[mid], nums[high]);
+                high--;
+            }
+        }
+
+    }
+};
